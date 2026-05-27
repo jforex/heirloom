@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f0e0c;
+  --foreground: #f5f1ea;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: pageEnter 0.3s ease-out;
+}
