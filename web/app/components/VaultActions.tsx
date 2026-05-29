@@ -35,6 +35,7 @@ export function VaultActions({
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [heirAddr, setHeirAddr] = useState("");
+  const [shareCopied, setShareCopied] = useState(false);
 
   const isOwner = !!account && account.address === vault.owner;
   if (!isOwner) return null;
@@ -104,6 +105,14 @@ export function VaultActions({
         arguments: [tx.object(vault.vaultId), tx.pure.address(addr)],
       });
     });
+  }
+
+  function copyShareMessage() {
+    const url = `${window.location.origin}/heir-setup`;
+    const msg = `I've named you as a heir on Heirloom. To receive access, go to ${url} and follow the steps to get your Heirloom address — then send it back to me so I can add you to the vault.`;
+    navigator.clipboard.writeText(msg);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
   }
 
   return (
@@ -192,6 +201,14 @@ export function VaultActions({
             {busy === "addheir" ? "Adding…" : "Add heir"}
           </button>
         </div>
+        <button
+          onClick={copyShareMessage}
+          className="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/40 px-3 py-2 text-[11px] text-neutral-400 transition hover:border-neutral-700 hover:text-neutral-200"
+        >
+          {shareCopied
+            ? "Message copied ✓ — paste into a text or email"
+            : "Don't know their address? Copy a message to send them →"}
+        </button>
       </div>
 
       {error && (

@@ -22,3 +22,7 @@ body {
 .page-enter {
   animation: pageEnter 0.3s ease-out;
 }
+
+.font-serif {
+  font-family: var(--font-fraunces), Georgia, serif;
+}

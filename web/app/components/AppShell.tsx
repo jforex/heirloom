@@ -16,7 +16,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </Link>
 
           <nav className="flex items-center gap-6 text-sm">
-            <Link href="/" className="text-neutral-400 transition hover:text-neutral-100">
+            <Link href="/app" className="text-neutral-400 transition hover:text-neutral-100">
               My Vaults
             </Link>
             <Link href="/inherited" className="text-neutral-400 transition hover:text-neutral-100">
