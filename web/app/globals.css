@@ -1,18 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f0e0c;
-  --foreground: #f5f1ea;
+  /* Warmer dark palette: aged paper, leather, ember */
+  --background: #14110e;   /* warm near-black, hint of brown */
+  --foreground: #f5ede0;   /* warm cream, not pure white */
+  --surface: #1c1814;      /* slightly raised surfaces */
+  --surface-2: #221d18;    /* card surfaces */
+  --border: #2a241d;       /* warm border */
+  --border-strong: #3a3127;
+  --muted: #9e9183;        /* warm muted text */
+  --muted-2: #6d6457;      /* warm fainter text */
+  --accent: #f59e0b;       /* amber */
+  --accent-soft: #fbbf24;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-plex-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .font-mono {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+.font-serif {
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
 @keyframes pageEnter {
@@ -23,6 +37,8 @@ body {
   animation: pageEnter 0.3s ease-out;
 }
 
-.font-serif {
-  font-family: var(--font-fraunces), Georgia, serif;
+/* Section dividers as soft amber hairlines */
+.divider-amber {
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.25), transparent);
+  height: 1px;
 }
